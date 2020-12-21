@@ -1,0 +1,7 @@
+F:\asp.net\电子商务网站\TheElectronicCommerce\DAL\bin\Debug\DAL.dll
+F:\asp.net\电子商务网站\TheElectronicCommerce\DAL\bin\Debug\DAL.pdb
+F:\asp.net\电子商务网站\TheElectronicCommerce\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+F:\asp.net\电子商务网站\TheElectronicCommerce\DAL\obj\Debug\DAL.dll
+F:\asp.net\电子商务网站\TheElectronicCommerce\DAL\obj\Debug\DAL.pdb
+F:\asp.net\电子商务网站\TheElectronicCommerce\DAL\bin\Debug\DAL.dll.config
+F:\asp.net\电子商务网站\TheElectronicCommerce\DAL\obj\Debug\DAL.csprojAssemblyReference.cache

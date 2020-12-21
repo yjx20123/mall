@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="db_NetStore" Class="db_NetStoreDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=F:\asp.net\电子商务网站\TheElectronicCommerce\TheElectronicCommerce\App_Data\db_NetStore.mdf;Integrated Security=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="db_NetStoreConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tb_Admin" Member="tb_Admin">
+    <Type Name="tb_Admin">
+      <Column Name="AdminID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AdminName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RealName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LoadDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_BookInfo" Member="tb_BookInfo">
+    <Type Name="tb_BookInfo">
+      <Column Name="BookID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClassID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BookName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BookIntroduce" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Author" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Company" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BookUrl" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="MarketPrice" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="HotPrice" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Isrefinement" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsHot" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsDiscount" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LoadDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="tb_BookInfo_tb_Detail" Member="tb_Detail" ThisKey="BookID" OtherKey="BookID" Type="tb_Detail" />
+      <Association Name="tb_Class_tb_BookInfo" Member="tb_Class" ThisKey="ClassID" OtherKey="ClassID" Type="tb_Class" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_Class" Member="tb_Class">
+    <Type Name="tb_Class">
+      <Column Name="ClassID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClassName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryUrl" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="tb_Class_tb_BookInfo" Member="tb_BookInfo" ThisKey="ClassID" OtherKey="ClassID" Type="tb_BookInfo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_Detail" Member="tb_Detail">
+    <Type Name="tb_Detail">
+      <Column Name="DetailID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BookID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Num" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotailPrice" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Remark" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Association Name="tb_BookInfo_tb_Detail" Member="tb_BookInfo" ThisKey="BookID" OtherKey="BookID" Type="tb_BookInfo" IsForeignKey="true" />
+      <Association Name="tb_OrderInfo_tb_Detail" Member="tb_OrderInfo" ThisKey="OrderID" OtherKey="OrderID" Type="tb_OrderInfo" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_Image" Member="tb_Image">
+    <Type Name="tb_Image">
+      <Column Name="ImageID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ImageName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ImageUrl" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_LeaveWord" Member="tb_LeaveWord">
+    <Type Name="tb_LeaveWord">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Uid" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Subject" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Content" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IP" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_Member" Member="tb_Member">
+    <Type Name="tb_Member">
+      <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RealName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Sex" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Phonecode" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="PostCode" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="LoadDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_OrderInfo" Member="tb_OrderInfo">
+    <Type Name="tb_OrderInfo">
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OrderDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="BooksFee" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="ShipFee" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TotalPrice" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="ShipType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ReceiverName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ReceiverPhone" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ReceiverPostCode" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ReceiverAddress" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ReceiverEmail" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsConfirm" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsSend" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsEnd" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AdminID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ConfirmTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="tb_OrderInfo_tb_Detail" Member="tb_Detail" ThisKey="OrderID" OtherKey="OrderID" Type="tb_Detail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_Reply" Member="tb_Reply">
+    <Type Name="tb_Reply">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Content" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ReplyID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IP" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

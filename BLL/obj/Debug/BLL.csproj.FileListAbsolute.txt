@@ -1,0 +1,10 @@
+F:\asp.net\电子商务网站\TheElectronicCommerce\BLL\bin\Debug\BLL.dll
+F:\asp.net\电子商务网站\TheElectronicCommerce\BLL\bin\Debug\BLL.pdb
+F:\asp.net\电子商务网站\TheElectronicCommerce\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+F:\asp.net\电子商务网站\TheElectronicCommerce\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+F:\asp.net\电子商务网站\TheElectronicCommerce\BLL\obj\Debug\BLL.dll
+F:\asp.net\电子商务网站\TheElectronicCommerce\BLL\obj\Debug\BLL.pdb
+F:\asp.net\电子商务网站\TheElectronicCommerce\BLL\bin\Debug\DAL.dll
+F:\asp.net\电子商务网站\TheElectronicCommerce\BLL\bin\Debug\DAL.pdb
+F:\asp.net\电子商务网站\TheElectronicCommerce\BLL\obj\Debug\BLL.csproj.CopyComplete
+F:\asp.net\电子商务网站\TheElectronicCommerce\BLL\bin\Debug\DAL.dll.config

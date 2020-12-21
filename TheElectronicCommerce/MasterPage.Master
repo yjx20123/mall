@@ -1,0 +1,60 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="TheElectronicCommerce.MasterPage" %>
+
+<%@ Register Src="~/userControl/menu.ascx" TagPrefix="uc1" TagName="menu" %>
+<%@ Register Src="~/userControl/LoadingControl.ascx" TagPrefix="uc2" TagName="LoadingControl" %>
+<%@ Register Src="~/userControl/navigate.ascx" TagPrefix="uc3" TagName="navigate" %>
+<%@ Register Src="~/userControl/bottom.ascx" TagPrefix="uc4" TagName="bottom" %>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>母版页</title>
+    
+    </style>
+    <style type="text/css">
+        .auto-style1 {
+            width: 778px;
+            height: 855px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <table style="width :1000px; height :1200px;　font-size: 9pt; font-family: 宋体;  background-image:url(images/backgroundimage.png)"  align =center border="0" cellpadding="0" cellspacing="0">
+    <tr>
+    <td valign =top >
+   <table style="　font-size: 9pt; font-family: 宋体; "  align =center border="0" cellpadding="0" cellspacing="0" class="auto-style1">
+            <tr>
+                <td colspan="2" valign =top  style ="width :778px; height :104px;  " >
+                    
+                    <uc1:menu runat="server" id="menu" />
+                 </td> 
+            </tr>
+            <tr>
+            <td style="width: 204px; height: 177px; vertical-align :top; border-left-width :thin ">
+                <uc2:LoadingControl id="LoadingControl1" runat="server">
+                 </uc2:LoadingControl></td>
+            <td style="width: 574px; vertical-align :top" rowspan="2">
+        <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+        </asp:contentplaceholder>
+            </td>
+            </tr>
+            <tr>
+                <td align =left style="width: 204px; vertical-align :top " >
+                    <uc3:navigate id="Navigate1" runat="server">
+                    </uc3:navigate></td>
+                
+            </tr>
+            <tr>
+                <td colspan="2"  valign =top  style ="width :778px; height :116px;background-image: url(images/底部.jpg); background-repeat:no-repeat " >
+                    <uc4:bottom ID="Bottom1" runat="server" />
+                </td>
+                
+            </tr>
+        </table>
+    </td>
+    </tr>
+    </table>
+    </form>
+</body>
+</html>
